@@ -1,5 +1,5 @@
 import random #imports the random module
-
+import random
 choices = ["R", "P", "S"] #A list of choices the program chooses from
 choice = input().upper() #Allows the user to enter their choice
 randomChoice = random.choice(choices) #Picks a random choice from the list of choices
