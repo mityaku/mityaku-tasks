@@ -8,7 +8,7 @@ def caesar_cipher(text, offset):
             encrypted_text += shifted_char
         else:
             encrypted_text += char  #keeps non-alphabetic characters unchanged
-    
+        
     return encrypted_text
 
 #input text and offset from the user
