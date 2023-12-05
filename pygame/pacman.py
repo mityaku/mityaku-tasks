@@ -97,22 +97,23 @@ class Grid:
         for i in range(grid_height):
             self.grid[i][grid_width -1] = 1  
             
-        walls = [[2, 2], [2, 3], [3, 3], [3, 2], [2, 5], [3, 5], [4, 5], [5, 5], [5, 4], [5, 3], [5, 2], [2, 7], [2, 8], [2, 9], [3, 9], [4, 7]]
-        
+        walls = [[2, 2], [2, 3], [3, 3], [3, 2], [2, 5], [3, 5], [4, 5], [5, 5], [5, 4], [5, 3], [5, 2], [2, 7], [2, 8], [2, 9], [3, 9], [4, 7], [6, 7], [6, 8], [7, 7], [8, 7], [6, 7], [7, 5], [7, 4], [7, 3], [7, 2]]
         for i in range(len(walls)):
             self.grid[walls[i][0]][walls[i][1]] = 1
             self.grid[walls[i][0]][(grid_width-1) - walls[i][1]] = 1
             self.grid[(grid_height-1) - walls[i][0]][(grid_width-1) - walls[i][1]] = 1
             self.grid[(grid_height-1) - walls[i][0]][walls[i][1]] = 1
+        
+      
             
 
             
 
     def draw(self):
         for x in range(0, width, cell_size):
-            pygame.draw.line(screen, (255, 0, 0), (x, 0), (x, height))
+            pygame.draw.line(screen, (255, 255, 255), (x, 0), (x, height))
         for y in range(0, height, cell_size):
-            pygame.draw.line(screen, (255, 0, 0), (0, y), (width, y))
+            pygame.draw.line(screen, (255, 255, 255), (0, y), (width, y))
 
         for y in range(grid_height):
             for x in range(grid_width):
