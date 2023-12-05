@@ -88,13 +88,22 @@ class Grid:
         self.generate_walls()
 
     def generate_walls(self):
-        walls = [[0,0], [0,1], [0,2], [0,0], [0,1], [0,2], [0,0], [0,1], [0,2], [0,0], [0,1], [0,2], [0,0], [0,1], [0,2], [0,0], [0,1], [0,2], [0,0], [0,1]]
-        for i in range(50):
-            randomMathList = [1, -1]
-            radomMath = randomMathList[random.randint(0, 1)]
-            wall_x = random.randint(0, grid_width - 1)
-            wall_y = random.randint(0, grid_height - 1)
-            self.grid[wall_y][wall_x] = 1
+        for i in range(grid_width):
+            self.grid[0][i] = 1
+        for i in range(grid_height):
+            self.grid[i][0] = 1   
+        for i in range(grid_width):
+            self.grid[grid_height -1][i] = 1
+        for i in range(grid_height):
+            self.grid[i][grid_width -1] = 1  
+            
+        walls = [[2, 2], [2, 3], [3, 3], [3, 2], [2, 5], [3, 5], [4, 5], [5, 5], [5, 4], [5, 3], [5, 2], [2, 7], [2, 8], [2, 9], [3, 9], [4, 7]]
+        
+        for i in range(len(walls)):
+            self.grid[walls[i][0]][walls[i][1]] = 1
+            self.grid[walls[i][0]][(grid_width-1) - walls[i][1]] = 1
+            self.grid[(grid_height-1) - walls[i][0]][(grid_width-1) - walls[i][1]] = 1
+            self.grid[(grid_height-1) - walls[i][0]][walls[i][1]] = 1
             
 
             
